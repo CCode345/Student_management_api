@@ -24,15 +24,15 @@ A **Spring Boot REST API** for managing students, courses, enrollments, and stud
 
 ```text
 src/main/java/com/studentmgmt/
-├── controller/        # REST Controllers
-├── service/           # Service Interfaces
-├── serviceimpl/       # Service Implementations
-├── repository/        # JPA Repositories
-├── model/             # Entity Classes
-├── dto/               # Request/Response DTOs
-├── exception/         # Custom Exceptions & Global Handler
-├── security/          # JWT Security Configuration
-├── config/            # Swagger Configuration
+├── controller/        
+├── service/          
+├── serviceimpl/     
+├── repository/        
+├── model/            
+├── dto/       
+├── exception/        
+├── security/         
+├── config/       
 └── StudentManagementApplication.java
 ```
 
@@ -96,7 +96,7 @@ Response:
 
 ```json
 {
-  "token": "eyJhbGciOiJIUzI1NiJ9..."
+  "token": "can be generated on runtime"
 }
 ```
 
@@ -182,23 +182,10 @@ Configuration:
 ```text
 JDBC URL : jdbc:h2:mem:studentdb
 Username : sa
-Password : (leave blank)
+Password : no password just leave it blank.
 ```
 
----
 
-## Sample Login Request
-
-```bash
-curl -X POST http://localhost:8080/auth/login \
--H "Content-Type: application/json" \
--d '{
-  "username":"admin",
-  "password":"admin123"
-}'
-```
-
----
 
 ## Sample Authenticated Request
 
@@ -214,30 +201,6 @@ curl -X GET http://localhost:8080/api/students \
 ```bash
 mvn test
 ```
-
----
-
-## Entity Relationships
-
-### Student ↔ Address
-
-One-To-Many
-
-* One Student can have multiple addresses.
-* Address Types:
-
-  * PERMANENT
-  * CURRENT
-  * CORRESPONDENCE
-
-### Student ↔ Course
-
-Many-To-Many
-
-* One Student can enroll in multiple courses.
-* One Course can be assigned to multiple students.
-
----
 
 ## Security Implementation
 
